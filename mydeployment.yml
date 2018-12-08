@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: dinesh
+
+spec:
+  template:
+    metadata:
+       name: dineshpod
+       labels:
+          app: seriousapp
+    spec:
+      containers:
+        - name: newcontainer
+          image: nginx:alpine-perl
+  replicas: 5
+
+  selector:
+    matchLabels:
+       app: seriousapp

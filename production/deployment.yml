@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: tomcatserver
+
+spec:
+  template:
+    metadata:
+      name: tomcatpod
+      labels:
+        app: tomcat
+    spec:
+     containers:
+     - name: tomcatimage
+       image: tomcat
+  
+  replicas: 5
+
+  selector:
+    matchLabels:
+      app: tomcat
+ 
+  
